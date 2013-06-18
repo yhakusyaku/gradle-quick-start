@@ -4,5 +4,4 @@ jdk:
   - openjdk7
   
 install: gradle assemble
-script: gradle -i test
-after: gradle check
+script: gradle check
