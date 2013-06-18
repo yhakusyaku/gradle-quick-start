@@ -3,4 +3,6 @@ language: java
 jdk:
   - openjdk7
   
-install: gradle build
+install: gradle assemble
+script: gradle -i test
+after: gradle check
