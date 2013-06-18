@@ -29,3 +29,13 @@ uploadArchives {
        }
     }
 }
+
+test {
+  testLogging {
+    afterSuite { desc, result ->
+      if (!desc.parent) {
+        println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+      }
+    }
+  }
+}
