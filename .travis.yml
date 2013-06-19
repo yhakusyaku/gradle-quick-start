@@ -3,5 +3,8 @@ language: java
 jdk:
   - openjdk7
   
-install: gradle assemble
-script: gradle check
+install: gradle -q assemble
+
+script: gradle check > build.out
+
+after_failure: cat build.out
