@@ -19,7 +19,6 @@ dependencies {
 
 test { systemProperties 'property': 'value' }
 
-
 findbugsMain {
 	effort = "max"
 	reportLevel = "high"
