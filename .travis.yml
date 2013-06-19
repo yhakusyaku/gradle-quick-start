@@ -1,10 +1,11 @@
 language: java
 
+# Testing Against Multiple JDKs
 jdk:
   - openjdk7
-  
+  - oraclejdk7
+
+# Projects Using Gradle
 install: gradle -q assemble
-
 script: gradle check > build.out
-
 after_failure: cat build.out
