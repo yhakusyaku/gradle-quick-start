@@ -1,7 +1,7 @@
 // Gradle Wrapper
 task wrapper(type: Wrapper) {
-    gradleVersion = gradle_version
-    jarFile = 'wrapper/wrapper.jar'
+	gradleVersion = gradle_version
+	jarFile = 'wrapper/wrapper.jar'
 }
 
 // Gradle Plugin
@@ -22,14 +22,14 @@ targetCompatibility = jdk_version
 
 // repository
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 // dependencies
 dependencies {
-    compile     group: 'commons-collections', name: 'commons-collections', version: '3.2'
-    compile     group: 'log4j', name: 'log4j', version: '1.+'
-    testCompile group: 'junit', name: 'junit', version: '4.+'
+	compile     group: 'commons-collections', name: 'commons-collections', version: '3.2'
+	compile     group: 'log4j', name: 'log4j', version: '1.+'
+	testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
 // encoding
@@ -37,27 +37,27 @@ dependencies {
 def defaultEncoding = 'UTF-8'
 
 compileJava {
-    options.encoding = defaultEncoding
+	options.encoding = defaultEncoding
 }
 
 compileTestJava {
-    options.encoding = defaultEncoding
+	options.encoding = defaultEncoding
 }
 
 //
 // archive
 //
 jar {
-    from configurations.compile.collect {
-        it.isDirectory() ? it : zipTree(it) 
-    }
-    
-    manifest {
-        attributes(
-            "Manifest-Version"       : "1.0",
-            "Build-Jdk"              : "${System.getProperty('java.version')} (${System.getProperty('java.vm.vendor')} ${System.getProperty('java.vm.version')})",
-            "Build-Tool"             : "Gradle ${gradle.gradleVersion}",
-            "Build-Timestamp"        : new Date().toString(),
+	from configurations.compile.collect {
+		it.isDirectory() ? it : zipTree(it)
+	}
+	
+	manifest {
+		attributes(
+			"Manifest-Version"       : "1.0",
+			"Build-Jdk"              : "${System.getProperty('java.version')} (${System.getProperty('java.vm.vendor')} ${System.getProperty('java.vm.version')})",
+			"Build-Tool"             : "Gradle ${gradle.gradleVersion}",
+			"Build-Timestamp"        : new Date().toString(),
 //          "Created-By"             : vendor,
 //          "Specification-Title"    : appName,
 //          "Specification-Version"  : version,
@@ -66,17 +66,17 @@ jar {
 //          "Implementation-Version" : version,
 //          "Implementation-Vendor"  : vendor,
 //          "Main-Class"             : mainClass,
-            "Class-Path"             : configurations.compile.collect { '../libs/' + it.getName() }.join(' '),
-        )
-    }
+			"Class-Path"             : configurations.compile.collect { '../libs/' + it.getName() }.join(' '),
+		)
+	}
 }
 
 //
 // java doc
 //
 javadoc {
-    options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PUBLIC
-    options.author = true
+	options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PUBLIC
+	options.author = true
 }
 
 
@@ -86,47 +86,41 @@ javadoc {
 // coverage
 jacocoTestReport.dependsOn += test
 jacocoTestReport {
-    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-    reports {
-            xml.enabled true
-            html.enabled true
-    }
+	additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+	reports {
+			xml.enabled true
+			html.enabled true
+	}
 }
 
 // findbug
 findbugsMain {
-    effort = "max"
-    reportLevel = "high"
-    ignoreFailures = true
-    reports {
-            xml.enabled true
-            html.enabled false
-    }
+	effort = "max"
+	reportLevel = "high"
+	ignoreFailures = true
+	reports {
+			xml.enabled true
+			html.enabled false
+	}
 }
+
 findbugsTest {
-    effort = "max"
-    reportLevel = "high"
-    ignoreFailures = true
-    reports {
-            xml.enabled true
-            html.enabled false
-    }
+	effort = "max"
+	reportLevel = "high"
+	ignoreFailures = true
+	reports {
+			xml.enabled true
+			html.enabled false
+	}
 }
+
 
 // PDM
 pmdMain {
-    reports {
-            xml.enabled true
-            html.enabled false
-    }
-  ignoreFailures = true
-}
-
-pmdMain {
-    reports {
-            xml.enabled true
-            html.enabled false
-    }
+	reports {
+			xml.enabled true
+			html.enabled false
+	}
   ignoreFailures = true
 }
 
