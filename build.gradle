@@ -126,11 +126,19 @@ pmdMain {
 
 // checkstyle
 checkstyleMain {
-  ignoreFailures = true
+	reports {
+			xml.enabled true
+			html.enabled true
+	}
+   ignoreFailures = true
 }
 
 checkstyleTest {
-  ignoreFailures = true
+	reports {
+			xml.enabled true
+			html.enabled true
+	}
+   ignoreFailures = true
 }
 
 
