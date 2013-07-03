@@ -125,20 +125,20 @@ pmdMain {
 }
 
 // checkstyle
-checkstyleMain {
-	reports {
-			xml.enabled true
-			html.enabled true
-	}
-   ignoreFailures = true
-}
-
-checkstyleTest {
-	reports {
-			xml.enabled true
-			html.enabled true
-	}
-   ignoreFailures = true
-}
+//checkstyleMain {
+//	reports {
+//			xml.enabled true
+//			html.enabled true
+//	}
+//   ignoreFailures = true
+//}
+//
+//checkstyleTest {
+//	reports {
+//			xml.enabled true
+//			html.enabled true
+//	}
+//   ignoreFailures = true
+//}
 
 
